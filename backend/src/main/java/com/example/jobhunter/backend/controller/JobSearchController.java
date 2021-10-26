@@ -62,6 +62,7 @@ public class JobSearchController {
 		JobSearchModel j = jobSearchRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Job search not found"));
 		j.setDateApplied(jobSearch.getDateApplied());
+		j.setJobTitle(jobSearch.getJobTitle());
 		j.setName(jobSearch.getName());
 		j.setJobPostingURL(jobSearch.getJobPostingURL());
 		j.setComments(jobSearch.getComments());

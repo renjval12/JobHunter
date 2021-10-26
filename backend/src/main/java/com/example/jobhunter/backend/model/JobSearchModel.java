@@ -9,25 +9,26 @@ import javax.persistence.Table;
 public class JobSearchModel {
 	@Id
 	private int id;
-	private String dateApplied;
+	private String date_applied;
+	private String job_title;
 	private String name;
-	private String jobPostingURL;
+	private String job_postingurl;
 	private String comments;
-	private String contactNum;
+	private String contact_num;
 
 	public JobSearchModel() {
 
 	}
 
-	public JobSearchModel(int id, String dateApplied, String name, String jobPostingURL, String comments,
-			String contactNum, int quantity) {
+	public JobSearchModel(int id, String date_applied, String name, String job_postingurl, String comments,
+			String contact_num, int quantity) {
 		super();
 		this.id = id;
-		this.dateApplied = dateApplied;
+		this.date_applied = date_applied;
 		this.name = name;
-		this.jobPostingURL = jobPostingURL;
+		this.job_postingurl = job_postingurl;
 		this.comments = comments;
-		this.contactNum = contactNum;
+		this.contact_num = contact_num;
 	}
 
 	public int getId() {
@@ -39,11 +40,19 @@ public class JobSearchModel {
 	}
 
 	public String getDateApplied() {
-		return dateApplied;
+		return date_applied;
 	}
 
-	public void setDateApplied(String dateApplied) {
-		this.dateApplied = dateApplied;
+	public void setDateApplied(String date_applied) {
+		this.date_applied = date_applied;
+	}
+
+	public String getJobTitle() {
+		return job_title;
+	}
+
+	public void setJobTitle(String job_title) {
+		this.job_title = job_title;
 	}
 
 	public String getName() {
@@ -55,11 +64,11 @@ public class JobSearchModel {
 	}
 
 	public String getJobPostingURL() {
-		return jobPostingURL;
+		return job_postingurl;
 	}
 
-	public void setJobPostingURL(String jobPostingURL) {
-		this.jobPostingURL = jobPostingURL;
+	public void setJobPostingURL(String job_postingurl) {
+		this.job_postingurl = job_postingurl;
 	}
 
 	public String getComments() {
@@ -71,11 +80,11 @@ public class JobSearchModel {
 	}
 
 	public String getContactNum() {
-		return contactNum;
+		return contact_num;
 	}
 
-	public void setContactNum(String contactNum) {
-		this.contactNum = contactNum;
+	public void setContactNum(String contact_num) {
+		this.contact_num = contact_num;
 	}
 
 }
