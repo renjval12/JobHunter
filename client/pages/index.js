@@ -8,17 +8,12 @@ import JobSearchService from './services/JobSearchService'
 
 export default function Home() {
   const [recentlyAppliedData, setRecentlyAppliedData] = useState([])
-  const recentlyApplied = []
   useEffect(() => {
     JobSearchService.getJobSearches().then((res) => {
-      for (let i = recentlyAppliedData.length; i >= 0; i--) {
-        recentlyApplied.push(res.data[i].dateApplied)
-      }
-      setRecentlyAppliedData([recentlyApplied])
-      console.log(recentlyAppliedData)
+      setRecentlyAppliedData(res.data)
     });
-  }, [0]);
-
+  }, [3]);
+  console.log(recentlyAppliedData)
   return (
     <div>
       <Head>
@@ -33,15 +28,14 @@ export default function Home() {
         <section className="landing-section">
           <h1 className="landing-section-heading">Recently Applied</h1>
           <div id="recently-applied-section" className="landing-section-container">
-            {recentlyAppliedData === '' ? null : 
-            recentlyAppliedData.map(recent =>
-            <div className="recently-applied">
-              <p>Date Applied: {recent.recentlyApplied}</p>
-              <p>Job Title - Company Name</p>
-              <p>Job Posting Url</p>
-              <p>More Info</p>
-            </div>)}
-
+            {recentlyAppliedData.reverse().map((recent, index) => index > 2 ? null :
+              <div className="recently-applied">
+                <p>Date Applied: {recent.dateApplied}</p>
+                <p>{recent.jobTitle} - {recent.name}</p>
+                <p>{recent.jobPostingURL}</p>
+                <p>More Info</p>
+              </div>
+ )}
           </div>
           <div className="landing-add-search-section">
             <span>Add New Search</span>
