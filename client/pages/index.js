@@ -2,14 +2,23 @@ import Head from 'next/head'
 import Image from 'next/image'
 import NavBar from './components/NavBar'
 import Link from 'next/link'
-import axios from 'axios'
-import ListJobSearches from './components/ListJobSearches'
-import AddSearch from './components/Add-Search'
-import UpdateJobSearch from './components/UpdateJobSearch'
-import DeleteJobSearch from './components/DeleteJobSearch'
+import { useEffect, useState } from 'react'
 import JobSearchService from './services/JobSearchService'
 
+
 export default function Home() {
+  const [recentlyAppliedData, setRecentlyAppliedData] = useState([])
+  const recentlyApplied = []
+  useEffect(() => {
+    JobSearchService.getJobSearches().then((res) => {
+      for (let i = recentlyAppliedData.length; i >= 0; i--) {
+        recentlyApplied.push(res.data[i].dateApplied)
+      }
+      setRecentlyAppliedData([recentlyApplied])
+      console.log(recentlyAppliedData)
+    });
+  }, [0]);
+
   return (
     <div>
       <Head>
@@ -24,24 +33,15 @@ export default function Home() {
         <section className="landing-section">
           <h1 className="landing-section-heading">Recently Applied</h1>
           <div id="recently-applied-section" className="landing-section-container">
+            {recentlyAppliedData === '' ? null : 
+            recentlyAppliedData.map(recent =>
             <div className="recently-applied">
-              <p>Date Applied</p>
+              <p>Date Applied: {recent.recentlyApplied}</p>
               <p>Job Title - Company Name</p>
               <p>Job Posting Url</p>
               <p>More Info</p>
-            </div>
-            <div className="recently-applied">
-              <p>Date Applied</p>
-              <p>Job Title - Company Name</p>
-              <p>Job Posting Url</p>
-              <p>More Info</p>
-            </div>
-            <div className="recently-applied">
-              <p>Date Applied</p>
-              <p>Job Title - Company Name</p>
-              <p>Job Posting Url</p>
-              <p>More Info</p>
-            </div>
+            </div>)}
+
           </div>
           <div className="landing-add-search-section">
             <span>Add New Search</span>
@@ -59,7 +59,7 @@ export default function Home() {
           </div>
         </section>
         <hr />
-        
+
         {/* <ListJobSearches /> */}
         {/* <AddSearch /> */}
         {/* <UpdateJobSearch /> */}
