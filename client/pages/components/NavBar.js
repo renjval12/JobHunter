@@ -8,7 +8,7 @@ const NavBar = () => {
             <ul>
                 <Link href="/"><a class="nav-link">Home</a></Link>
                 <Link href="/Manage-Searches"><a class="nav-link">Manage Searches</a></Link>
-                <Link href="/Add-Search"><a class="nav-link">Add Search</a></Link>
+                <Link href="/Add-Job-Search"><a class="nav-link">Add Search</a></Link>
             </ul>
             <Image src="/usericon.svg" width="50%" height="50%"/>
         </nav>
