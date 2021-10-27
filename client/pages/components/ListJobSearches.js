@@ -41,7 +41,6 @@ class ListJobSearches extends Component {
 
     viewJobSearch(id) {
         this.props.history.push(`/view-job-search/${id}`);
-
     }
 
     render() {

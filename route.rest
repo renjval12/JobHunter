@@ -1,0 +1,27 @@
+GET http://localhost:8080/api/all-job-searches
+
+###
+
+GET http://localhost:8080/api/job-search/1
+
+###
+
+POST http://localhost:3000/manifestations
+Content-Type: application/json
+
+{
+    "manifestation" : "I want a new car"
+}
+
+###
+
+DELETE http://localhost:3000/manifestations/615b85623f88d376f335f63e
+
+###
+
+PATCH http://localhost:3000/manifestations/615b54251d478eec54564c1c
+Content-Type: application/json
+
+{
+    "manifestation": ""
+}

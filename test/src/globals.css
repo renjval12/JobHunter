@@ -9,6 +9,10 @@ html, body {
   font-family: 'Catamaran', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 nav {
   display: flex;
   padding: 0.5% 2%;
@@ -206,17 +210,61 @@ hr {
 
 /* manage searches page  */
 
+#manage-pg-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5%;
+  padding: 0 2%;
+}
+#manage-pg-heading h1 {
+  justify-self: center;
+}
+#job-search-total {
+  font-weight: 900;
+}
+#manage-pg-heading button {
+  height: fit-content;
+  padding: 1%;
+}
+
+#filter-btn, #manage-pg-add-btn  {
+  
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.338) 2px 2px;
+  filter: drop-shadow(1px 0.5px 3px #000000);
+}
+
+#filter-btn span {
+  font-weight: 900;
+}
+
+#filter-btn {
+  background-color: #C81B16;
+  border: #a7636351 solid 1px;
+  color: white;
+}
+#manage-pg-add-btn {
+  background-color: #00B0F5;
+  border: #a7636351 solid 1px;
+  color: black;
+}
+#manage-pg-add-btn {
+  font-weight: 600;
+}
+
 .job-searches-list {
   display: flex;
   flex-direction: column;
   gap: 2%;
+  padding: 0 2%;
 }
 
 .job-search-items {
   display: flex;
   justify-content: space-around;
   border: 0.5px solid rgba(0, 0, 0, 0.749);
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 0.75% 1%;
   box-shadow: rgba(0, 0, 0, 0.434) 1.5px 1.5px;
   align-items: center;
@@ -230,20 +278,14 @@ hr {
   display: flex;
 }
 
-.update-btn, .delete-btn {
+.view-btn {
   width: max-content;
   height: max-content;
-  margin: 0 5%;
+  padding: 1%;
+  /* margin: 0 5%; */
   border-radius: 10px;
   border: none;
   font-weight: 800;
-}
-
-.update-btn, .delete-btn {
-  color: white;
-}
-
-.update-btn {
   background-color: #00B0F5;
 }
 
@@ -256,4 +298,25 @@ hr {
     flex-direction: column;
     /* justify-content: space-center; */
   }
+}
+
+/* view search page */
+.search-pg {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #C81B16;
+  margin: 5%;
+  padding: 5%;
+  border-radius: 20px;
+}
+.search-pg p {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 3%;
+  background-color: #c81c1630;
+}
+
+.actions-taken-section {
+  display: flex;
+  justify-content: space-around;
 }
