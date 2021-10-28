@@ -3,19 +3,25 @@
 ## Overview
 
 **Job Hunter** is a fullstack application, that utilizes **React**, **Java**, **Springboot**, and **MySQL** database. Job Hunter helps users keep track of all of their job search efforts. All the user has to do it is add a search, and they'll be able to edit it. 
+<img src="/JobHunter.png" style="width: 50%;"/>
+<img src="/JobHunter1.png" style="width: 50%;"/>
+
+
 ## Usage
 
 ### Add Job Search 
 
 The user goes to the "**Add Search**" tab of the webpage, enter the date they applied, the job title they applied for, the company name they applied to, the job posting URL they used, the company contact number, and any comments about the job search effort.  
-
+<img src="/addsearch.png" style="width: 50%;"/>
 ### Update and Delete Searches
 
 With the use of MySQL database, users are able to not only add their job searches, but also, with the use of **PUT** mapping in Springboot (with Hibernate as the ORM), the user is also able to update and delete individual job searches. 
 
-## Technologies Used
-The following with an exhaustive list of project management tools, technologies, frameworks, and libraries used for this project:
 
+
+## Technologies Used
+The following with an exhaustive list of project management tools, design tools, technologies, frameworks, and libraries used for this project:
+- [Figma](https://www.figma.com/)
  -   [ReactJS](https://reactjs.org/)
 -   [React-Bootstrap](https://react-bootstrap.github.io/)
 -   [React Router](https://reactrouter.com/)
