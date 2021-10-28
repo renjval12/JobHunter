@@ -1,35 +1,43 @@
 import React, { Component } from 'react';
 import JobSearchService from '../services/JobSearchService';
 import NavBar from '../components/NavBar';
+import { Link } from 'react-router-dom'
 class ViewJobSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            jobSearch: {}
+            jobSearches: {}
         }
     }//constructor
 
     componentDidMount() {
         JobSearchService.getJobSearchById(this.state.id).then(res => {
-            this.setState({ jobSearch: res.data })
-            console.log(this.state.jobSearch)
+            this.setState({ jobSearches: res.data })
+            console.log(this.state.jobSearches)
         });
     }
 
 
+    updateJobSearch(id) {
+        this.props.history.push(`/update-job-search/${id}`);
+    }
+
+    deleteJobSearch(id) {
+        this.props.history.push(`/delete-job-search/${id}`);
+    }
 
     render() {
         return (
-            <div>
+            <div className="search-pg-container">
                 <NavBar />
                 <div className="search-pg">
-                    <h1>Job Search # {this.state.jobSearch.id}</h1>
-                    <h2><span>Job Title:</span> {this.state.jobSearch.jobTitle} </h2>
-                    <h2><span>Company: </span> {this.state.jobSearch.name} </h2>
-                    <h2><span>Job Posting URL: </span> {this.state.jobSearch.jobPostingURL} </h2>
+                    <h1>Job Search # {this.state.jobSearches.id}</h1>
+                    <h2><span>Job Title:</span> {this.state.jobSearches.jobTitle} </h2>
+                    <h2><span>Company: </span> {this.state.jobSearches.name} </h2>
+                    <h2><span>Job Posting URL: </span> {this.state.jobSearches.jobPostingURL} </h2>
                     <h2><span>Comments: </span>  </h2>
-                    <p>{this.state.jobSearch.comments}</p>
+                    <p>{this.state.jobSearches.comments}</p>
                     <section
                         className="actions-taken-section-container">
                         <h2>Actions Taken</h2>
@@ -55,6 +63,11 @@ class ViewJobSearch extends Component {
                                 <input type="radio" id="no" name="follow-up3" value="0" checked />
                                 <label for="no"> No</label><br />
                             </div>
+                        </div>
+                        <div className="update-delete-back-btns">
+                            <button onClick={() => this.updateJobSearch(this.state.jobSearches.id)} >Update</button>
+                            <button onClick={() => this.deleteJobSearch(this.state.jobSearches.id)} className="delete-btn">Delete</button>
+                            <Link to="/manage-job-searches"><button>Cancel</button></Link>
                         </div>
                     </section>
                 </div>

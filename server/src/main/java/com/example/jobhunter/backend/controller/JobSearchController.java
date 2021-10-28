@@ -1,6 +1,8 @@
 package com.example.jobhunter.backend.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -60,10 +62,20 @@ public class JobSearchController {
 		return ResponseEntity.ok(updatedJobSearch);
 	}
 
+//	@DeleteMapping("/job-searches/{id}")
+//	public String deleteJobSearch(@PathVariable int id) {
+//		jobSearchRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Job search not found"));
+//		jobSearchRepo.deleteById(id);
+//		return "The job search item with id: " + id + " is removed from the database.";
+//	}
 	@DeleteMapping("/job-searches/{id}")
-	public String deleteJobSearch(@PathVariable int id) {
-		jobSearchRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Job search not found"));
-		jobSearchRepo.deleteById(id);
-		return "The job search item with id: " + id + " is removed from the database.";
+	public ResponseEntity<Map<String, Boolean>> deleteJobSearch(@PathVariable int id){
+		JobSearchModel j = jobSearchRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Job Search not exist with id :" + id));
+		
+		jobSearchRepo.delete(j);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
 	}
 }

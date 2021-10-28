@@ -6,7 +6,7 @@ class JobSearchService {
     getJobSearches() {
         return axios.get(JOB_SEARCH_API_BASE_URL + "/job-searches");
     }
-    createJobSearch(jobSearch) {
+    addJobSearch(jobSearch) {
         return axios.post(JOB_SEARCH_API_BASE_URL + "/add-job-search", jobSearch);
     }
 

@@ -82,7 +82,8 @@ hr {
 .recently-applied {
   display: flex;
   flex-direction: column;
-  border: 2px solid #00B0f5;
+  border: 1px solid #00B0f5;
+  background-color: #00b0f52e;
   border-radius: 20px;
   padding: 2%;
   /* filter: drop-shadow(4px 1px 5px #000000); */
@@ -109,6 +110,7 @@ hr {
   padding: 1% 2%;
   box-shadow: rgba(0, 0, 0, 0.434) 2px 2px;
   filter: drop-shadow(4px 1px 2px #0000008c);
+  color: white;
 }
 
 .recently-applied button:hover {
@@ -129,6 +131,8 @@ hr {
   padding: 5%;
   width: 250px;
   text-align: center;
+    filter: drop-shadow(1px 1px 5px #000000);
+
 }
 
 .landing-manage {
@@ -217,19 +221,21 @@ hr {
   gap: 5%;
   padding: 0 2%;
 }
+
 #manage-pg-heading h1 {
   justify-self: center;
 }
+
 #job-search-total {
   font-weight: 900;
 }
+
 #manage-pg-heading button {
   height: fit-content;
   padding: 1%;
 }
 
-#filter-btn, #manage-pg-add-btn  {
-  
+#filter-btn, #manage-pg-add-btn {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.338) 2px 2px;
   filter: drop-shadow(1px 0.5px 3px #000000);
@@ -244,13 +250,28 @@ hr {
   border: #a7636351 solid 1px;
   color: white;
 }
+
 #manage-pg-add-btn {
   background-color: #00B0F5;
   border: #a7636351 solid 1px;
   color: black;
 }
+
 #manage-pg-add-btn {
   font-weight: 600;
+}
+
+.table-fields {
+  display: flex;
+  padding: 0 4%;
+  gap: 8%;
+  /* justify-content: space-between; */
+}
+
+@media (max-width:600px) {
+  .table-fields {
+    display: none;
+  }
 }
 
 .job-searches-list {
@@ -301,22 +322,60 @@ hr {
 }
 
 /* view search page */
+
+.search-pg-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .search-pg {
   display: flex;
   flex-direction: column;
-  border: 5px solid #C81B16;
-  margin: 5%;
+  border: 5px dotted #C81B16;
+  margin: 5% 20%;
   padding: 5%;
   border-radius: 20px;
+  /* background-color: #ffffff; */
+  background-color: #da888523;
+
 }
+
+.search-pg h1 {
+  text-align: center;
+  font-weight: 800;
+}
+
+.search-pg h2 {
+  font-weight: 300;
+}
+
+.search-pg h2 span, .actions-taken-section-container h2 {
+  font-weight: 700;
+  color: #00B0F5;
+}
+
 .search-pg p {
-  border: 2px solid black;
+  border: 2px solid #00B0F5;
   border-radius: 5px;
   padding: 3%;
-  background-color: #c81c1630;
+  background-color: #00b0f531;
 }
 
 .actions-taken-section {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 8%;
+}
+.update-delete-back-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+@media (max-width: 700px) {
+  .search-pg {
+    margin: 0;
+    padding: 5%;
+    border-radius: 0;
+  }
 }

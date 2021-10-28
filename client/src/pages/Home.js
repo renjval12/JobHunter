@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import JobSearchService from '../services/JobSearchService'
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 
 export default function Home() {
     const [recentlyAppliedData, setRecentlyAppliedData] = useState([])
@@ -10,7 +11,10 @@ export default function Home() {
             setRecentlyAppliedData(res.data)
         });
     }, []);
-    console.log(recentlyAppliedData)
+//     .ajax({url: 'http://public.api.careerjet.net/search?locale_code=US_en&pagesize=1&sort=salary&keywords=java&page=124&location=new+york"',
+// success: function(data)
+    axios.get("http://public.api.careerjet.net/search?locale_code=US_en&pagesize=1&sort=salary&keywords=java&page=124&location=new+york").then(data => console.log(data))
+    .catch(error => console.log(error))
     return (
         <div>
             <header>
@@ -32,7 +36,7 @@ export default function Home() {
                     </div>
                     <div className="landing-add-search-section">
                         <span>Add New Search</span>
-                        <Link to="/Add-Search"><button className="landing-add-btn">✚</button></Link>
+                        <Link to="/add-job-search"><button className="landing-add-btn">✚</button></Link>
                     </div>
                 </section>
                 <hr />

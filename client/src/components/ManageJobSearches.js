@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import JobSearchService from '../services/JobSearchService';
 import NavBar from './NavBar';
-
 class ManageJobSearches extends Component {
     constructor(props) {
         super(props)
         this.state = {
             jobSearches: []
         }
-        // this.addJobSearch  = this.addJobSearch.bind(this);
-        // this.editJobSearch  = this.editJobSearch.bind(this);
-        // this.deleteJobSearch  = this.deleteJobSearch.bind(this);
-        // this.viewJobSearch  = this.viewJobSearch.bind(this);
     }
 
     componentDidMount() {
@@ -24,14 +19,6 @@ class ManageJobSearches extends Component {
         this.props.history.push('/add-job-search');
     }
 
-    // editStudent(id) {
-    //     this.props.history.push(`/update-job-search/${id}`);
-    // }
-
-    // deleteStudent(id) {
-    //     this.props.history.push(`/delete-job-search/${id}`);
-    // }
-
     viewJobSearch(id) {
         this.props.history.push(`/job-search/${id}`);
     }
@@ -40,14 +27,23 @@ class ManageJobSearches extends Component {
         return (
             <div>
                 <header>
-                <NavBar />
+                    <NavBar />
                 </header>
                 <div id="manage-pg-heading">
                     <button id="filter-btn"> <span>Filter By: </span>Newest to Oldest</button>
                     <h1><span id="job-search-total">Job Searches</span> ({this.state.jobSearches.length})</h1>
-                    <button onClick={() => this.addJobSearch()}  id="manage-pg-add-btn">Add Search</button>
+                    <button onClick={() => this.addJobSearch()} id="manage-pg-add-btn">Add Search</button>
                 </div>
                 <div className="job-searches-list">
+                    <div className="table-fields">
+                        <p>Id</p>
+                        <p>Date Applied</p>
+                        <p>Job Title</p>
+                        <p>Company Name</p>
+                        <p>Job Posting URL</p>
+                        <p>Contact Number</p>
+                        {/* <p>View More Button</p> */}
+                    </div>
                     {this.state.jobSearches.reverse().map(search =>
                         <div className="job-search-items">
                             <p className="search-id">#{search.id}</p>
@@ -56,7 +52,7 @@ class ManageJobSearches extends Component {
                             <p className="company-name">{search.name}</p>
                             <a href={search.jobPostingURL} rel="noreferrer" target="_blank" className="job-posting-url">{search.jobPostingURL}</a>
                             <p className="contact-num">{search.contactNum}</p>
-                            <button onClick={() => this.viewJobSearch(search.id)} className="view-btn">View</button>
+                            <button onClick={() => this.viewJobSearch(search.id)} className="view-btn">+</button>
                         </div>
                     )}
                 </div>
