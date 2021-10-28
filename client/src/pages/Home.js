@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import JobSearchService from '../services/JobSearchService'
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import axios from 'axios';
 
 export default function Home() {
     const [recentlyAppliedData, setRecentlyAppliedData] = useState([])
@@ -11,10 +10,6 @@ export default function Home() {
             setRecentlyAppliedData(res.data)
         });
     }, []);
-//     .ajax({url: 'http://public.api.careerjet.net/search?locale_code=US_en&pagesize=1&sort=salary&keywords=java&page=124&location=new+york"',
-// success: function(data)
-    axios.get("http://public.api.careerjet.net/search?locale_code=US_en&pagesize=1&sort=salary&keywords=java&page=124&location=new+york").then(data => console.log(data))
-    .catch(error => console.log(error))
     return (
         <div>
             <header>
@@ -25,7 +20,7 @@ export default function Home() {
                     <h1 className="landing-section-heading">Recently Applied</h1>
                     <div id="recently-applied-section" className="landing-section-container">
                         {recentlyAppliedData.reverse().map((recent, index) => index > 2 ? null :
-                            <div className="recently-applied">
+                            <div key={recent.id} className="recently-applied">
                                 <p><span>Date Applied:</span> {recent.dateApplied}</p>
                                 <p><span>Job Title:</span> {recent.jobTitle}</p>
                                 <p><span>Company Name:</span> {recent.name}</p>
@@ -40,13 +35,39 @@ export default function Home() {
                     </div>
                 </section>
                 <hr />
-                <section id="status-check-section" className="landing-section">
+                <section className="landing-section">
                     <h1 className="landing-section-heading">Status Check</h1>
-
-                    <div id="status-check-section" className="landing-section-container">
-                        <img src="/clipboard.png" id="clipboard1" alt="clipboard clip art" />
-                        <img src="/clipboard.png" id="clipboard2" alt="clipboard clip art" />
-                        <img src="/clipboard.png" id="clipboard3" alt="clipboard clip art" />
+                    <div id="status-check-section">
+                        <div id="followed-up">
+                            <h2>Followed Up</h2>
+                            {recentlyAppliedData.map((recent, index) => index > 3 ? null :
+                                <div key={recent.id} className="action-status-followed-up">
+                                    <p>{recent.jobTitle} - {recent.name}</p>
+                                    <p><span>Job Posting URL:</span> {recent.jobPostingURL}</p>
+                                    <Link to="/manage-job-searches"><button>More Info</button></Link>
+                                </div>
+                            )}
+                        </div>
+                        <div id="interviewed">
+                            <h2> Interviewed For</h2>
+                            {recentlyAppliedData.map((recent, index) => index > 3 ? null :
+                                <div key={recent.id} className="action-status-followed-up">
+                                    <p>{recent.jobTitle} - {recent.name}</p>
+                                    <p><span>Job Posting URL:</span> {recent.jobPostingURL}</p>
+                                    <Link to="/manage-job-searches"><button>More Info</button></Link>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            <h2> Rejected</h2>
+                            {recentlyAppliedData.map((recent, index) => index > 3 ? null :
+                                <div key={recent.id} className="action-status-followed-up">
+                                    <p>{recent.jobTitle} - {recent.name}</p>
+                                    <p><span>Job Posting URL:</span> {recent.jobPostingURL}</p>
+                                    <Link to="/manage-job-searches"><button>More Info</button></Link>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </section>
                 <hr />
@@ -56,7 +77,7 @@ export default function Home() {
                     <div id="manage-searches-section" className="landing-section-container">
                         <div className="landing-manage-add landing-manage">
                             <p className="landing-manage-heading">Add Search</p>
-                            <Link to="/add-job-search"><button><i class="fas fa-plus"></i></button></Link>
+                            <Link to="/add-job-search"><button><i className="fas fa-plus"></i></button></Link>
 
                         </div>
                         <div className="landing-manage-update landing-manage">

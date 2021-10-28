@@ -124,6 +124,21 @@ hr {
 
 /* status check section */
 
+#status-check-section {
+  padding: 7%, 2%;
+  display: flex;
+  justify-content: space-around;
+}
+#status-check-section h2 {
+  font-size: 1.2rem;
+}
+@media (max-width: 700px) {
+  #status-check-section {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 /* manage searches section */
 
 .landing-manage {
@@ -131,8 +146,7 @@ hr {
   padding: 5%;
   width: 250px;
   text-align: center;
-    filter: drop-shadow(1px 1px 5px #000000);
-
+  filter: drop-shadow(1px 1px 5px #000000);
 }
 
 .landing-manage {
@@ -338,7 +352,6 @@ hr {
   border-radius: 20px;
   /* background-color: #ffffff; */
   background-color: #da888523;
-
 }
 
 .search-pg h1 {
@@ -367,11 +380,13 @@ hr {
   justify-content: space-around;
   padding-bottom: 8%;
 }
+
 .update-delete-back-btns {
   display: flex;
   justify-content: center;
   gap: 10%;
 }
+
 @media (max-width: 700px) {
   .search-pg {
     margin: 0;

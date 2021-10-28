@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import JobSearchService from '../services/JobSearchService';
 import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 class ViewJobSearch extends Component {
     constructor(props) {
         super(props)
@@ -16,6 +17,9 @@ class ViewJobSearch extends Component {
             this.setState({ jobSearches: res.data })
             console.log(this.state.jobSearches)
         });
+        axios.get(`https://api.smartrecruiters.com/v1/companies/{companyIdentifier}/postings?q={query}&limit={3}&country={US}&region={region}&city={city}&department={department}&custom_field.{customFieldId}={customFieldValueId}&language={en-GB}`)
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
     }
 
 
@@ -26,6 +30,8 @@ class ViewJobSearch extends Component {
     deleteJobSearch(id) {
         this.props.history.push(`/delete-job-search/${id}`);
     }
+
+
 
     render() {
         return (
