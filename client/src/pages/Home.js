@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import JobSearchService from '../services/JobSearchService'
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 export default function Home() {
     const [recentlyAppliedData, setRecentlyAppliedData] = useState([])
@@ -91,6 +92,7 @@ export default function Home() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </div >
     )
 }

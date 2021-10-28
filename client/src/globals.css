@@ -32,6 +32,71 @@ nav ul {
   color: #C81B16;
 }
 
+nav img {
+  width: 50px;
+}
+
+/* footer */
+
+footer {
+  padding: 7%;
+  background-color: #C6EFFF;
+  display: flex;
+  justify-content: center;
+  gap: 7%;
+}
+
+footer a, nav ul {
+  color: #C81B16;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer a:hover, nav ul a:hover {
+  text-decoration: underline dotted #00B0F5 3px;
+  font-weight: 900;
+}
+
+footer span {
+  display: block;
+}
+
+footer h1 span {
+  display: none;
+}
+
+footer h1 {
+  color: #C81B16;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.job-hunter-logo-footer {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+footer hr {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  footer hr {
+    display: inline;
+  }
+}
+
 /* landing page */
 
 .landing-section {
@@ -129,9 +194,11 @@ hr {
   display: flex;
   justify-content: space-around;
 }
+
 #status-check-section h2 {
   font-size: 1.2rem;
 }
+
 @media (max-width: 700px) {
   #status-check-section {
     flex-direction: column;
