@@ -3,9 +3,11 @@
 ## Overview
 
 **Job Hunter** is a fullstack application, that utilizes **React**, **Java**, **Springboot**, and **MySQL** database. Job Hunter helps users keep track of all of their job search efforts. All the user has to do it is add a search, and they'll be able to edit it. 
-<img src="/JobHunter.png" style="width: 50%;"/>
-<img src="/JobHunter1.png" style="width: 50%;"/>
 
+ 
+<img src="/Job Hunter.jpg" style="width: 50%;"/>
+<img src="/Job Hunter1.jpg" style="width: 50%;"/>
+ 
 
 ## Usage
 
