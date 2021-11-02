@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JobSearchService from '../services/JobSearchService';
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 class UpdateJobSearch extends Component {
@@ -104,7 +105,7 @@ class UpdateJobSearch extends Component {
 
     render() {
         return (
-            <div className="search-pg-container">
+            <div className="search-pg-container pg">
                 <NavBar />
                 <div className="search-pg">
                     <h3 className="text-center">Update Student</h3>
@@ -149,6 +150,7 @@ class UpdateJobSearch extends Component {
                         <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>
                     </form>
                 </div>
+                <Footer />
             </div>
         );
     }

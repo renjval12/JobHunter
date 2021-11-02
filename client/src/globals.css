@@ -8,7 +8,9 @@ html, body {
   margin: 0;
   font-family: 'Catamaran', sans-serif;
 }
-
+.pg {
+  height: 100vh;
+}
 button {
   cursor: pointer;
 }
@@ -460,4 +462,11 @@ hr {
     padding: 5%;
     border-radius: 0;
   }
+}
+
+.add-search-pg h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-top: 0;
 }

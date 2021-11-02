@@ -6,6 +6,7 @@ import ViewJobSearch from './components/ViewJobSearch';
 
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               </Switch>
             </div>
           </Router>
+          
         </div>
   );
 }

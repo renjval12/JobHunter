@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JobSearchService from '../services/JobSearchService';
+import Footer from './Footer';
 import NavBar from './NavBar';
 class ManageJobSearches extends Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class ManageJobSearches extends Component {
                         </div>
                     )}
                 </div>
+                <Footer />
             </div>
         );
     }

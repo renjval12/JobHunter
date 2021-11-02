@@ -3,6 +3,7 @@ import JobSearchService from '../services/JobSearchService';
 import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import Footer from './Footer';
 class ViewJobSearch extends Component {
     constructor(props) {
         super(props)
@@ -35,7 +36,7 @@ class ViewJobSearch extends Component {
 
     render() {
         return (
-            <div className="search-pg-container">
+            <div className="search-pg-container pg">
                 <NavBar />
                 <div className="search-pg">
                     <h1>Job Search # {this.state.jobSearches.id}</h1>
@@ -77,6 +78,7 @@ class ViewJobSearch extends Component {
                         </div>
                     </section>
                 </div>
+                <Footer />
             </div>
         );
     }
